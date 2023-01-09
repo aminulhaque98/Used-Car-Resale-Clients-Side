@@ -7,6 +7,7 @@ import NotFound from '../../Others/NotFound/NotFound';
 import Home from '../../pages/Home/Home/Home';
 import Login from '../../pages/Login/Login';
 import SignUp from '../../pages/SignUp/SignUp';
+import PrivateRoutes from '../PrivateRoutes/PrivateRoutes';
 
 
 export const routes = createBrowserRouter([
@@ -28,7 +29,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/blog',
-                element: <Blog></Blog>,
+                element: <PrivateRoutes><Blog></Blog></PrivateRoutes>,
             },
             {
                 path: '/fqa',

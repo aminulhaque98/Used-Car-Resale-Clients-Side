@@ -1,24 +1,35 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { FaUserAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
 
 
     const menuItems = <>
         <li className='font-semibold'><Link to='/'>Home</Link></li>
+        <li className='font-semibold'><Link to='/'>Dashboard</Link></li>
 
         <li className='font-semibold'><Link to='/fqa'>FQA</Link></li>
         <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
 
         <li className='font-semibold'>{
+            user?.uid ?
+                <>
+                    <button className='me-3 font-semibold' onClick={handleLogOut} variant="outline-info">LogOut</button>
+                </>
+                :
+                <>
+                    <Link to='/login'><button className='me-3 font-semibold' variant="outline-primary">Login</button></Link>
 
-            <>
-                <Link to='/dashboard' className='font-semibold'>Dashboard</Link>
-                <button className='me-3 font-semibold' variant="outline-info">LogOut</button>
-
-                <Link to='/login'><button className='me-3 font-semibold' variant="outline-primary">Login</button></Link>
-
-            </>
+                </>
         }</li>
 
     </>
@@ -58,8 +69,7 @@ const Navbar = () => {
 
 
                 <Link className='me-3 ml-5' to="/profile">
-                    <h1>hello</h1>
-                    {/* {user?.photoURL ?
+                    {user?.photoURL ?
                         <>
                             {user?.photoURL ?
 
@@ -75,7 +85,7 @@ const Navbar = () => {
 
                         :
                         <FaUserAlt style={{ height: '50px' }} ></FaUserAlt>
-                    } */}
+                    }
                 </Link>
 
             </div>

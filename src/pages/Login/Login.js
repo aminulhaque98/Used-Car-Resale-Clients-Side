@@ -1,11 +1,49 @@
+import { GoogleAuthProvider } from 'firebase/auth';
+import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const [error, setError] = useState('');;
+    const { signInUser, providerLogin, setLoading } = useContext(AuthContext);
+
+
+    const googleProvider = new GoogleAuthProvider();
+
+
 
     const handleLogin = data => {
         console.log(data)
+
+        signInUser(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                setError('');
+                toast.success('Successfully login to the account');
+
+
+            })
+            .catch(error => {
+                toast.error(error.message);
+                setError(error.message);
+            })
+            .finally(() => {
+                setLoading(false)
+            })
+
+    }
+
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                toast.success('Successfully login to the account');
+            })
+            .catch(error => toast.error(error.message))
     }
 
     return (
@@ -29,14 +67,14 @@ const Login = () => {
                     </div>
                     <select className="input input-bordered w-full max-w-xs my-3" {...register("category", { required: true })}>
                         <option value="">Select...</option>
-                        <option value="A">Admin</option>
-                        <option value="B">Seller</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Seller">Seller</option>
                     </select>
                     <input className='btn  w-full mb-3' value='Login' type="submit" />
                 </form>
                 <p>Don't have an account?<Link className='text-orange-600' to="/signup">Sign Up</Link></p>
                 <div className="divider">OR</div>
-                <button className="btn btn-outline btn-primary w-full">LOGIN WITH GOOGLE</button>
+                <button onClick={handleGoogleSignIn} className="btn btn-outline btn-primary w-full">LOGIN WITH GOOGLE</button>
             </div>
         </div>
     );

@@ -1,12 +1,30 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 const SignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const { createUser } = useContext(AuthContext);
+    const [error, setError] = useState('');
+
 
     const handleSignUp = data => {
-        console.log(data)
+
+
+        createUser(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                setError('');
+                toast.success('Successfully Complete Your SignUp!');
+
+            })
+            .catch(error => {
+                toast.error("This didn't work.")
+                setError(error.message);
+            });
     }
 
     return (
@@ -36,8 +54,8 @@ const SignUp = () => {
                     </div>
                     <select className="input input-bordered w-full max-w-xs my-3" {...register("category", { required: true })}>
                         <option value="">Select...</option>
-                        <option value="A">Admin</option>
-                        <option value="B">Seller</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Seller">Seller</option>
                     </select>
                     <input className='btn  w-full mb-3' value='Sign Up' type="submit" />
                 </form>
