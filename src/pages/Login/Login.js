@@ -2,34 +2,36 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const [error, setError] = useState('');;
+    const [loginError, setLoginError] = useState('');;
     const { signInUser, providerLogin, setLoading } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
 
+    const from = location.state?.from?.pathname || '/';
 
     const googleProvider = new GoogleAuthProvider();
 
 
 
     const handleLogin = data => {
-        console.log(data)
+        setLoginError('');
 
         signInUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                setError('');
                 toast.success('Successfully login to the account');
-
+                navigate(from, { replace: true });
 
             })
             .catch(error => {
                 toast.error(error.message);
-                setError(error.message);
+                setLoginError(error.message);
             })
             .finally(() => {
                 setLoading(false)
@@ -71,6 +73,7 @@ const Login = () => {
                         <option value="Seller">Seller</option>
                     </select>
                     <input className='btn  w-full mb-3' value='Login' type="submit" />
+                    {loginError && <p className='text-red-600'>{loginError}</p>}
                 </form>
                 <p>Don't have an account?<Link className='text-orange-600' to="/signup">Sign Up</Link></p>
                 <div className="divider">OR</div>

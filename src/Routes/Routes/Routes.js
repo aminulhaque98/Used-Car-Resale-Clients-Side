@@ -4,6 +4,7 @@ import Main from '../../Layout/Main';
 import Blog from '../../Others/Blog/Blog';
 import FQA from '../../Others/FQA/FQA';
 import NotFound from '../../Others/NotFound/NotFound';
+import Dashboard from '../../pages/dashboard/Dashboard/Dashboard';
 import Home from '../../pages/Home/Home/Home';
 import Login from '../../pages/Login/Login';
 import SignUp from '../../pages/SignUp/SignUp';
@@ -29,7 +30,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/blog',
-                element: <PrivateRoutes><Blog></Blog></PrivateRoutes>,
+                element: <Blog></Blog>,
             },
             {
                 path: '/fqa',
@@ -38,6 +39,13 @@ export const routes = createBrowserRouter([
 
         ]
     },
+    {
+        path: '/dashboard',
+        element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>
+    },
+
+
+
     {
         path: '*',
         element: <NotFound></NotFound>

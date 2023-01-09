@@ -6,12 +6,11 @@ import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 const SignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUser } = useContext(AuthContext);
     const [error, setError] = useState('');
 
 
     const handleSignUp = data => {
-
 
         createUser(data.email, data.password)
             .then(result => {
@@ -19,6 +18,14 @@ const SignUp = () => {
                 console.log(user);
                 setError('');
                 toast.success('Successfully Complete Your SignUp!');
+
+                const userInfo = {
+                    displayName: data.name
+                }
+
+                updateUser(userInfo)
+                    .then(() => { })
+                    .catch(err => console.log(err));
 
             })
             .catch(error => {
@@ -58,6 +65,7 @@ const SignUp = () => {
                         <option value="Seller">Seller</option>
                     </select>
                     <input className='btn  w-full mb-3' value='Sign Up' type="submit" />
+                    {error && <p className='text-red-600'>{error}</p>}
                 </form>
                 <p>Already have an account?<Link className='text-orange-600' to="/login">Login</Link></p>
 

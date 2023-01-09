@@ -8,7 +8,7 @@ const auth = getAuth(app);
 
 
 const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState();
+    const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
 
@@ -28,9 +28,9 @@ const AuthProvider = ({ children }) => {
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
-    const updateUserProfile = (profile) => {
+    const updateUser = (userInfo) => {
         setLoading(true);
-        return updateProfile(auth.currentUser, profile);
+        return updateProfile(user, userInfo);
     }
 
 
@@ -53,7 +53,7 @@ const AuthProvider = ({ children }) => {
     }, [])
 
 
-    const authInfo = { user, loading, createUser, signInUser, setLoading, updateUserProfile, logOut, providerLogin }
+    const authInfo = { user, loading, createUser, signInUser, setLoading, updateUser, logOut, providerLogin }
     return (
         <div>
 
