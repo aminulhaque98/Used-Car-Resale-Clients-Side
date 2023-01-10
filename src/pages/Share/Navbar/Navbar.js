@@ -46,7 +46,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <Link to="/"><img className='w-12 h-12 lg-ml-16 ' src="https://i.ibb.co/9pfxhJS/logo.png" alt="" /></Link>
-                <Link to="/" className="text-xl font-bold"><span className='text-purple-600'>NationWide</span> <span className='text-pink-600 text-2xl font-bold italic'>Car Resale</span> Ltd.</Link>
+                <Link to="/" className="text-xl font-bold"><span className='text-purple-600'>NationWide</span> <span className='text-pink-600 text-2xl font-bold italic'>Used Car </span>Resale</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

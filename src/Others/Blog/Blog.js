@@ -9,7 +9,7 @@ const Blog = () => {
                 </div>
                 <div className="collapse-content mx-5 px-5">
                     <p>Answer: The Four Kinds of React State to Manage</p>
-                    <ul class="list-disc">
+                    <ul className="list-disc">
                         <li> Local state.</li>
                         <li>Global state.</li>
                         <li>Server state.</li>

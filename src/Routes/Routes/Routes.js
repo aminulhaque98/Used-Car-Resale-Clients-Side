@@ -7,6 +7,7 @@ import NotFound from '../../Others/NotFound/NotFound';
 import Dashboard from '../../pages/dashboard/Dashboard/Dashboard';
 import Home from '../../pages/Home/Home/Home';
 import Login from '../../pages/Login/Login';
+import Products from '../../pages/Products/Products/Products';
 import SignUp from '../../pages/SignUp/SignUp';
 import PrivateRoutes from '../PrivateRoutes/PrivateRoutes';
 
@@ -19,6 +20,11 @@ export const routes = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>
+            },
+            {
+                path: '/products/:id',
+                element: <Products></Products>,
+                // loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
             },
             {
                 path: '/login',
