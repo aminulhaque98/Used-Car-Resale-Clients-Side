@@ -1,7 +1,7 @@
 import React from 'react';
 
-const ProductsCard = ({ category }) => {
-    const { name, picture, description, Product_type, location, resale_price, original_price, years_of_use, posted_time } = category
+const ProductsCard = ({ product, setBooking }) => {
+    const { name, picture, description, Product_type, location, resale_price, original_price, years_of_use, posted_time } = product
 
 
     return (
@@ -16,18 +16,15 @@ const ProductsCard = ({ category }) => {
 
                 <ul className="list-disc text-xl px-5">
                     <li className="text-cyan-600">Resale_price: ${resale_price}</li>
-
                     <li>Original_price: $
                         <span className=" line-through">{original_price}</span></li>
-
                     <li>Years_of_use: {years_of_use}</li>
                     <li>Location: {location}</li>
                     <li>Posted_time: {posted_time}</li>
                 </ul>
                 <div className="card-actions justify-end">
                     <button className="btn btn-outline btn-primary">Add to wishlist</button>
-                    <button className="btn btn-outline btn-secondary">Book Now</button>
-
+                    <label htmlFor="booking-modal" className="btn btn-secondary " onClick={() => setBooking(product)} >Book Now</label>
                 </div>
             </div>
         </div>
