@@ -1,15 +1,22 @@
+import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
 import CategoryCard from './CategoryCard/CategoryCard';
 
 const Categories = () => {
-    const [categories, setCategories] = useState([]);
-    console.log(categories);
+    // const [categories, setCategories] = useState([]);
 
-    useEffect(() => {
-        fetch('http://localhost:5000/categories')
+
+    const { data: categories = [] } = useQuery({
+        queryKey: ['categories'],
+        queryFn: () => fetch('http://localhost:5000/categories')
             .then(res => res.json())
-            .then(data => setCategories(data))
-    }, [])
+    })
+
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/categories')
+    //         .then(res => res.json())
+    //         .then(data => setCategories(data))
+    // }, [])
 
     return (
         <div className='my-5'>

@@ -1,13 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 const SignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { createUser, updateUser } = useContext(AuthContext);
     const [error, setError] = useState('');
+    const navigate = useNavigate();
 
 
     const handleSignUp = data => {
@@ -24,7 +25,9 @@ const SignUp = () => {
                 }
 
                 updateUser(userInfo)
-                    .then(() => { })
+                    .then(() => {
+                        navigate('/');
+                    })
                     .catch(err => console.log(err));
 
             })
@@ -61,7 +64,7 @@ const SignUp = () => {
                     </div>
                     <select className="input input-bordered w-full max-w-xs my-3" {...register("category", { required: true })}>
                         <option value="">Select...</option>
-                        <option value="Admin">Admin</option>
+                        <option value="Buyer">Buyer</option>
                         <option value="Seller">Seller</option>
                     </select>
                     <input className='btn  w-full mb-3' value='Sign Up' type="submit" />
