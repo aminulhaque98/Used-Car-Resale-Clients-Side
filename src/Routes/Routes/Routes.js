@@ -5,6 +5,8 @@ import Main from '../../Layout/Main';
 import Blog from '../../Others/Blog/Blog';
 import FQA from '../../Others/FQA/FQA';
 import NotFound from '../../Others/NotFound/NotFound';
+import AllBuyers from '../../pages/dashboard/AllBuyers/AllBuyers';
+import AllUsers from '../../pages/dashboard/AllUsers/AllUsers';
 import Dashboard from '../../pages/dashboard/Dashboard/Dashboard';
 import MyOrders from '../../pages/dashboard/MyOrders/MyOrders';
 import Home from '../../pages/Home/Home/Home';
@@ -53,6 +55,18 @@ export const routes = createBrowserRouter([
             {
                 path: '/dashboard',
                 element: <MyOrders></MyOrders>
+            },
+            {
+                path: '/dashboard/allusers',
+                element: <AllUsers></AllUsers>
+            },
+            {
+                path: '/dashboard/allbuyers',
+                element: <AllBuyers></AllBuyers>
+            },
+            {
+                path: '/dashboard/addproduct',
+                element: <AllBuyers></AllBuyers>
             }
         ]
     },
