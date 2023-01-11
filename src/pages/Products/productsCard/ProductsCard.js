@@ -1,7 +1,9 @@
 import React from 'react';
+import { FaCheck } from 'react-icons/fa';
+
 
 const ProductsCard = ({ product, setBooking }) => {
-    const { name, picture, description, Product_type, location, resale_price, original_price, years_of_use, posted_time } = product
+    const { name, seller, picture, description, Product_type, location, resale_price, original_price, years_of_use, posted_time } = product
 
 
     return (
@@ -12,6 +14,10 @@ const ProductsCard = ({ product, setBooking }) => {
                     {name}
                     <div className="badge badge-secondary">{Product_type}</div>
                 </h2>
+                <p className='flex gap-3'>
+                    <span className="badge decoration-pink-600">Seller: {seller}
+                    </span><FaCheck className="text-blue-600 text-xl "></FaCheck>
+                </p>
                 <p>Description: {description}</p>
 
                 <ul className="list-disc text-xl px-5">

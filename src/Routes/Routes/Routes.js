@@ -1,10 +1,12 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
+import DashboardLayout from '../../Layout/DashboardLayout';
 import Main from '../../Layout/Main';
 import Blog from '../../Others/Blog/Blog';
 import FQA from '../../Others/FQA/FQA';
 import NotFound from '../../Others/NotFound/NotFound';
 import Dashboard from '../../pages/dashboard/Dashboard/Dashboard';
+import MyOrders from '../../pages/dashboard/MyOrders/MyOrders';
 import Home from '../../pages/Home/Home/Home';
 import Login from '../../pages/Login/Login';
 import Products from '../../pages/Products/Products/Products';
@@ -24,7 +26,6 @@ export const routes = createBrowserRouter([
             {
                 path: '/products/:id',
                 element: <Products></Products>,
-                // loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
             },
             {
                 path: '/login',
@@ -47,7 +48,13 @@ export const routes = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>
+        element: <PrivateRoutes><DashboardLayout></DashboardLayout></PrivateRoutes>,
+        children: [
+            {
+                path: '/dashboard',
+                element: <MyOrders></MyOrders>
+            }
+        ]
     },
 
 

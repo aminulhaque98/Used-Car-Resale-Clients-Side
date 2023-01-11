@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
-const BookingModal = ({ booking }) => {
+const BookingModal = ({ booking, setBooking }) => {
     const { name, resale_price, posted_time } = booking;
     const { user } = useContext(AuthContext)
 
@@ -36,8 +36,9 @@ const BookingModal = ({ booking }) => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    form.reset();
+                    setBooking(null);
                     toast.success('Your Booking placed successfully');
+
                 }
             })
             .catch(err => console.error(err));
