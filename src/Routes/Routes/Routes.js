@@ -5,6 +5,7 @@ import Main from '../../Layout/Main';
 import Blog from '../../Others/Blog/Blog';
 import FQA from '../../Others/FQA/FQA';
 import NotFound from '../../Others/NotFound/NotFound';
+import AddProduct from '../../pages/dashboard/AddProduct/AddProduct';
 import AllBuyers from '../../pages/dashboard/AllBuyers/AllBuyers';
 import AllUsers from '../../pages/dashboard/AllUsers/AllUsers';
 import Dashboard from '../../pages/dashboard/Dashboard/Dashboard';
@@ -13,6 +14,7 @@ import Home from '../../pages/Home/Home/Home';
 import Login from '../../pages/Login/Login';
 import Products from '../../pages/Products/Products/Products';
 import SignUp from '../../pages/SignUp/SignUp';
+import AdminRoute from '../AdminRoute/AdminRoute';
 import PrivateRoutes from '../PrivateRoutes/PrivateRoutes';
 
 
@@ -27,7 +29,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/products/:id',
-                element: <Products></Products>,
+                element: <PrivateRoutes><Products></Products></PrivateRoutes>,
             },
             {
                 path: '/login',
@@ -54,11 +56,11 @@ export const routes = createBrowserRouter([
         children: [
             {
                 path: '/dashboard',
-                element: <MyOrders></MyOrders>
+                element: <PrivateRoutes><MyOrders></MyOrders></PrivateRoutes>
             },
             {
                 path: '/dashboard/allusers',
-                element: <AllUsers></AllUsers>
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             },
             {
                 path: '/dashboard/allbuyers',
@@ -66,7 +68,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/dashboard/addproduct',
-                element: <AllBuyers></AllBuyers>
+                element: <AddProduct></AddProduct>
             }
         ]
     },
