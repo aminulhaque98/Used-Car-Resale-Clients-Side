@@ -15,11 +15,11 @@ const Payment = () => {
     const navigation = useNavigation();
     const { itemName, price, number, meetingLocation } = booking;
 
-    if (navigation.state === 'loading') {
-        return <div className='text-center'>
-            <div className="animate-spin radial-progress  text-primary-content border-2 border-primary" style={{ "--value": 70 }}></div>
-        </div>;
-    }
+    // if (navigation.state === 'loading') {
+    //     return <div className='text-center'>
+    //         <div className="animate-spin radial-progress  text-primary-content border-2 border-primary" style={{ "--value": 70 }}></div>
+    //     </div>;
+    // }
     return (
         <div className="p-3">
             <h1 className='text-4xl font-bold text-center my-3'>Payment for your item: <span className='text-secondary'>{itemName}</span></h1>

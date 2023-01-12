@@ -10,7 +10,7 @@ const Products = () => {
     const [booking, setBooking] = useState(null);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${params.id}`)
+        fetch(`https://products-resale-server-side-amber.vercel.app/products/${params.id}`)
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [params?.id])

@@ -8,7 +8,7 @@ const AllBuyers = () => {
     // console.log(buyers);
 
     // useEffect(() => {
-    //     fetch("http://localhost:5000/users")
+    //     fetch("https://products-resale-server-side-amber.vercel.app/users")
     //         .then(res => res.json())
     //         .then(data => {
     //             console.log(data)

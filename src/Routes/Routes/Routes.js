@@ -69,8 +69,8 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/dashboard/payment/:id',
-                element: <AdminRoute><Payment></Payment></AdminRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
+                element: <Payment></Payment>,
+                loader: ({ params }) => fetch(`https://products-resale-server-side-amber.vercel.app/bookings/${params.id}`)
             },
             {
                 path: '/dashboard/allbuyers',
