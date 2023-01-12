@@ -18,7 +18,7 @@ const MyOrderCard = ({ booking, i }) => {
                     booking.price && !booking.paid && <Link to={`/dashboard/payment/${booking._id}`}><button className='btn btn-primary btn-sm'>pay</button></Link>
                 }
                 {
-                    booking.price && booking.paid && <span text-primary>Paid</span>
+                    booking.price && booking.paid && <span className="text-green-500">Paid</span>
                 }
             </td>
         </tr>

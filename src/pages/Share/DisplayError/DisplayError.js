@@ -1,17 +1,18 @@
 import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
-import { useRouteError } from 'react-router-dom';
+import { useNavigate, useRouteError } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
 
 const DisplayError = () => {
     const error = useRouteError();
     const { logOut } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleLogOut = () => {
         logOut()
 
             .then(() => {
-                toast.success('logOut your account some went wrong');
+                navigate('/login');
             })
             .catch(error => console.error(error))
     }
