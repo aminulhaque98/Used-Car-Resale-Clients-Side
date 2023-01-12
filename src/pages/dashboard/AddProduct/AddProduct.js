@@ -22,6 +22,7 @@ const AddProduct = () => {
         const image = form.image.files[0];
         const description = form.description.value;
 
+        // b0e7ee6ce6b56eb9ba71cba89e876465
 
         const formDate = new FormData()
         formDate.append('image', image)
@@ -87,19 +88,19 @@ const AddProduct = () => {
                         <label className="label">
                             <span className="label-text">Your name:</span>
                         </label>
-                        <input type="text" name='name' placeholder="Your name" className="input input-bordered" />
+                        <input type="text" name='name' placeholder="Your name" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Product Name</span>
                         </label>
-                        <input type="text" name='productName' placeholder="Product Name" className="input input-bordered" />
+                        <input type="text" name='productName' placeholder="Product Name" className="input input-bordered" required />
                     </div>
                     <div className="form-control w-full ">
                         <label className="label">
                             <span className="label-text">Categories id</span>
                         </label>
-                        <select name="category" className="select select-bordered">
+                        <select name="category" className="select select-bordered" required>
                             <option disabled selected>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -119,13 +120,13 @@ const AddProduct = () => {
                         <label className="label">
                             <span className="label-text">Resale Price:</span>
                         </label>
-                        <input type="text" name='ResalePrice' placeholder="Resale Price" className="input input-bordered" />
+                        <input type="text" name='ResalePrice' placeholder="Resale Price" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">original Price:</span>
                         </label>
-                        <input type="text" name='originalPrice' placeholder="original Price" className="input input-bordered" />
+                        <input type="text" name='originalPrice' placeholder="original Price" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
@@ -137,13 +138,13 @@ const AddProduct = () => {
                         <label className="label">
                             <span className="label-text">Years of use:</span>
                         </label>
-                        <input type="text" name='Years' placeholder="Years of use:" className="input input-bordered" />
+                        <input type="text" name='Years' placeholder="Years of use:" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">posted_time:</span>
                         </label>
-                        <input type="text" name='time' placeholder="posted_time:" className="input input-bordered" />
+                        <input type="text" name='time' placeholder="posted_time:" className="input input-bordered" required />
                     </div>
 
 

@@ -32,6 +32,25 @@ const AllUsers = () => {
     }
 
 
+    const userHandlerDelete = id => {
+        const proceed = window.confirm('Are you sure,you want to cancel this review');
+        if (proceed) {
+            fetch(`http://localhost:5000/users/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+
+                    if (data.deletedCount > 0) {
+                        toast.success('Successfully Complete Your deleted data!');
+                    }
+                })
+        }
+
+    }
+
+
+
     return (
         <div>
             <h1 className='text-4xl font-bold text-secondary text-center my-3'>Our All Users Here!</h1>
@@ -61,7 +80,7 @@ const AllUsers = () => {
                                 <td>{user?.role !== 'Admin' && <button onClick={() => handleMakeAdmin(user?._id)} className="btn btn-xs btn-active btn-primary">Make Admin</button>}
                                 </td>
 
-                                <td><button className="btn btn-xs btn-active btn-secondary">Delete</button></td>
+                                <td><button onClick={() => userHandlerDelete(user?._id)} className="btn btn-xs btn-active btn-secondary">Delete</button></td>
                             </tr>)
                         }
 
