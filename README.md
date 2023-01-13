@@ -1,5 +1,5 @@
 # Your Car
-##### Used Cars Resale Shop
+##### NationWide Used Car Resale Shop
 To Explore Live Site please Click , [Live Here](https://nationwide-car-resale.web.app/)
 > ###### Site is Deployed in Firebase.com
 Admin Info :
@@ -34,12 +34,12 @@ Admin Info :
 - React-stripe-js
 - React-query
 - Axios
-- React Tailwind CSS (Flowbite)
+- React Tailwind CSS (daisyUi)
 - React Hot-toast
 - React Confirm-alert
 - React-helmet
 - React Photo-view
 - React Icons
-- Firebase Auntentication
+- Firebase Authentication
 - Jwt Verification
 - Local-Storage

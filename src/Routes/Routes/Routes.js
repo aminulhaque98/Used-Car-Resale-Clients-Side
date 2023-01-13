@@ -5,6 +5,7 @@ import Main from '../../Layout/Main';
 import Blog from '../../Others/Blog/Blog';
 import FQA from '../../Others/FQA/FQA';
 import NotFound from '../../Others/NotFound/NotFound';
+import ProfileDisplay from '../../Others/ProfileDisplay/ProfileDisplay';
 import AddProduct from '../../pages/dashboard/AddProduct/AddProduct';
 import AllBuyers from '../../pages/dashboard/AllBuyers/AllBuyers';
 import AllUsers from '../../pages/dashboard/AllUsers/AllUsers';
@@ -38,6 +39,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login></Login>,
+            },
+            {
+                path: '/profile',
+                element: <ProfileDisplay></ProfileDisplay>,
             },
             {
                 path: '/signup',
