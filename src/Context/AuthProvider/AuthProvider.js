@@ -8,9 +8,14 @@ const auth = getAuth(app);
 
 
 const AuthProvider = ({ children }) => {
+    const [theme, setTheme] = useState();
     const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true)
 
+
+    const toggleTheme = () => {
+        setTheme((curr) => (curr === "bg-inherit" ? "bg-black" : "bg-inherit"))
+    };
 
     const signInUser = (email, password) => {
         setLoading(true);
@@ -53,9 +58,9 @@ const AuthProvider = ({ children }) => {
     }, [])
 
 
-    const authInfo = { user, loading, createUser, signInUser, setLoading, updateUser, logOut, providerLogin }
+    const authInfo = { user, loading, toggleTheme, createUser, signInUser, setLoading, updateUser, logOut, providerLogin }
     return (
-        <div>
+        <div className={theme}>
 
             <AuthContext.Provider value={authInfo}>
                 {children}
