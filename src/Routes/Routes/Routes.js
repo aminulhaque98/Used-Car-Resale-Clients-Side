@@ -17,6 +17,7 @@ import Login from '../../pages/Login/Login';
 import Products from '../../pages/Products/Products/Products';
 import DisplayError from '../../pages/Share/DisplayError/DisplayError';
 import SignUp from '../../pages/SignUp/SignUp';
+import MyWishList from '../../pages/WishList/MyWishList/MyWishList';
 import AdminRoute from '../AdminRoute/AdminRoute';
 import PrivateRoutes from '../PrivateRoutes/PrivateRoutes';
 import SellerRoute from '../SellerRoute/SellerRoute';
@@ -35,6 +36,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/products/:id',
                 element: <PrivateRoutes><Products></Products></PrivateRoutes>,
+            },
+            {
+                path: '/wishlist',
+                element: <MyWishList></MyWishList>
             },
             {
                 path: '/login',

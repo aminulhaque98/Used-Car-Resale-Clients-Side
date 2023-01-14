@@ -1,9 +1,10 @@
 import React from 'react';
 import { FaCheck } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 
 const ProductsCard = ({ product, setBooking }) => {
-    const { name, seller, picture, description, Product_type, location, resale_price, original_price, years_of_use, posted_time } = product
+    const { _id, name, seller, picture, description, Product_type, location, resale_price, original_price, years_of_use, posted_time } = product
 
 
     return (
@@ -29,7 +30,10 @@ const ProductsCard = ({ product, setBooking }) => {
                     <li>Posted_time: {posted_time}</li>
                 </ul>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-outline btn-primary">Add to wishlist</button>
+                    <Link to='/wishlist'>
+                        <button className="btn btn-outline btn-primary">Add to wishlist</button>
+                    </Link>
+
                     <label htmlFor="booking-modal" className="btn btn-secondary " onClick={() => setBooking(product)} >Book Now</label>
                 </div>
             </div>
