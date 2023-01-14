@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
+import useTitle from '../../../hooks/useTitle';
 
 const AddProduct = () => {
     const { user } = useContext(AuthContext);
 
-
+    useTitle('AddProduct');
 
     const addProductHandler = event => {
         event.preventDefault();
@@ -22,8 +23,7 @@ const AddProduct = () => {
         const image = form.image.files[0];
         const description = form.description.value;
 
-        // b0e7ee6ce6b56eb9ba71cba89e876465
-
+        //process.env.REACT_APP_imgbb problem kortace
         const formDate = new FormData()
         formDate.append('image', image)
 

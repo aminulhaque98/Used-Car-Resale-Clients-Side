@@ -4,6 +4,7 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import CheckoutForm from './CheckoutForm';
 import { useNavigation } from 'react-router-dom';
+import useTitle from '../../../../hooks/useTitle';
 
 
 const stripePromise = loadStripe('pk_test_51MNeurGTAztyTxxYj9fNHdjkw6BMHMTSxyaXs25PAL0WuFdGvIwbPTqUlViVlYjweypR0cyMy0lIqrLDMXHXKWNZ00yu4F58ok');
@@ -14,6 +15,8 @@ const Payment = () => {
     const booking = useLoaderData();
     const navigation = useNavigation();
     const { itemName, price, number, meetingLocation } = booking;
+
+    useTitle('Payment');
 
     // if (navigation.state === 'loading') {
     //     return <div className='text-center'>

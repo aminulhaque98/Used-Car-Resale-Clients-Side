@@ -15,13 +15,13 @@ const FQA = () => {
 
             <div data-theme="valentine" className='text-xl shadow-xl rounded-lg mb-5 p-5'>
                 <h3>Support time per day</h3>
-                <p>
+                <span>
                     <p> <FaClock></FaClock> At morning 11 am - 1.00 pm </p>
                     <p> <FaClock></FaClock> At evening (4-6) pm</p>
                     <p> <FaClock></FaClock> At night (9-11) pm</p>
 
 
-                </p>
+                </span>
             </div>
 
             <div data-theme="valentine" className='text-xl shadow-xl rounded-lg mb-5 p-5'>

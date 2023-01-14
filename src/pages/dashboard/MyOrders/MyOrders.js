@@ -1,10 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
+import useTitle from '../../../hooks/useTitle';
 import MyOrderCard from './MyOrderCard';
 
 const MyOrders = () => {
     const { user } = useContext(AuthContext);
+    useTitle('My Orders');
 
     const url = `https://products-resale-server-side-amber.vercel.app/bookings?email=${user?.email}`;
 

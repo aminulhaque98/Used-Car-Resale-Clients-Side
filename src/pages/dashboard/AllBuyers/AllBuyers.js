@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import useTitle from '../../../hooks/useTitle';
 
 const AllBuyers = () => {
+    useTitle('AllBuyers');
     // const params = useParams();
     // const [buyers, setBuyers] = useState([]);
 

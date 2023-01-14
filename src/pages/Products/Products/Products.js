@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import useTitle from '../../../hooks/useTitle';
 import BookingModal from '../../BookingModal/BookingModal';
 import ProductsCard from '../productsCard/ProductsCard';
 
@@ -8,6 +9,7 @@ const Products = () => {
     const params = useParams();
     const [products, setProducts] = useState([]);
     const [booking, setBooking] = useState(null);
+    useTitle('Products');
 
     useEffect(() => {
         fetch(`https://products-resale-server-side-amber.vercel.app/products/${params.id}`)
