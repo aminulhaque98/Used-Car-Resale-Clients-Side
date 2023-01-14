@@ -9,7 +9,6 @@ const SellerRoute = ({ children }) => {
     const [isSeller, isSellerLoading] = useSeller(user?.email);
     const [isAdmin, isAdminLoading] = useAdmin(user?.email);
     const location = useLocation();
-    console.log(isSeller);
     if (loading || isSellerLoading || isAdminLoading) {
         return <div className='text-center'>
             <div className="animate-spin radial-progress bg-primary text-primary-content border-4 border-primary" style={{ "--value": 70 }}></div>
