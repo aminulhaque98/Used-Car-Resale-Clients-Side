@@ -25,7 +25,6 @@ const SignUp = () => {
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
                 setError('');
                 toast.success('Successfully Complete Your SignUp!');
 

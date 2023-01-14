@@ -45,7 +45,7 @@ const CheckoutForm = ({ booking }) => {
             console.log('[error]', error);
             setCardError(error.message);
         } else {
-            console.log('[PaymentMethod]', paymentMethod);
+
             setCardError('');
         }
         setSuccess('');
@@ -87,7 +87,7 @@ const CheckoutForm = ({ booking }) => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
+
                     if (data.insertedId) {
 
                     }
