@@ -1,7 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 const ProfileDisplay = () => {
+    useTitle('Profile');
     const { user } = useContext(AuthContext);
     const [name, setName] = useState(user?.displayName);
     // useTitle('Profile');

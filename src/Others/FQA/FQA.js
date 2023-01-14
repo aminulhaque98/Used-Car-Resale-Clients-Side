@@ -1,8 +1,10 @@
 import React from 'react';
 import { FaClock } from 'react-icons/fa';
+import useTitle from '../../hooks/useTitle';
 
 
 const FQA = () => {
+    useTitle('FQA');
     return (
         <div className='my-20'>
 

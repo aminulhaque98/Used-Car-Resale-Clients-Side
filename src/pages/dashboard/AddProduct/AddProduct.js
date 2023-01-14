@@ -36,7 +36,6 @@ const AddProduct = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 const { display_url } = data?.data
 
                 //mongodb te data upload

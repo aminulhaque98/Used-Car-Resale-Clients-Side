@@ -47,7 +47,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/profile',
-                element: <ProfileDisplay></ProfileDisplay>,
+                element: <PrivateRoutes><ProfileDisplay></ProfileDisplay></PrivateRoutes>,
             },
             {
                 path: '/signup',
