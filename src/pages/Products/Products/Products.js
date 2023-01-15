@@ -1,4 +1,3 @@
-import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import useTitle from '../../../hooks/useTitle';
@@ -16,6 +15,8 @@ const Products = () => {
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [params?.id])
+
+
 
 
 

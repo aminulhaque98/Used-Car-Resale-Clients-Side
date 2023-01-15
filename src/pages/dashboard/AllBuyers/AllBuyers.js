@@ -1,23 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React from 'react';
+
 import useTitle from '../../../hooks/useTitle';
 
 const AllBuyers = () => {
     useTitle('AllBuyers');
-    // const params = useParams();
-    // const [buyers, setBuyers] = useState([]);
 
-    // console.log(buyers);
-
-    // useEffect(() => {
-    //     fetch("https://products-resale-server-side-amber.vercel.app/users")
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data)
-    //             setBuyers(data)
-    //         })
-
-    // }, [params?.Buyer])
 
     return (
         <div>
@@ -41,7 +28,7 @@ const AllBuyers = () => {
                                 <th>1</th>
                                 <td>name</td>
                                 <td>email</td>
-                                <td>urole</td>
+                                <td>role</td>
 
 
 

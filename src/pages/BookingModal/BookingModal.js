@@ -10,7 +10,7 @@ const BookingModal = ({ booking, setBooking }) => {
         event.preventDefault();
         const form = event.target;
         const name = form.userName.value;
-        const email = form.email.value
+        const email = form.email.value;
         const itemName = form.itemName.value;
         const price = form.price.value;
         const number = form.number.value;
