@@ -39,7 +39,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/wishlist',
-                element: <MyWishList></MyWishList>
+                element: <PrivateRoutes><MyWishList></MyWishList></PrivateRoutes>
             },
             {
                 path: '/login',

@@ -19,7 +19,7 @@ const ProductsCard = ({ product, setBooking }) => {
             email: user.email,
             name, seller, picture, description, Product_type, location, resale_price, original_price, years_of_use, posted_time
         }
-        fetch('http://localhost:5000/wishlist', {
+        fetch('https://products-resale-server-side-amber.vercel.app/wishlist', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -28,7 +28,6 @@ const ProductsCard = ({ product, setBooking }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.acknowledged) {
                     toast.success('Your Booking placed to Wishlist ');
 
